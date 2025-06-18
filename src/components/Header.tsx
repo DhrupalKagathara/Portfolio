@@ -1,12 +1,16 @@
-// src/components/Header.tsx
 'use client'
 
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import ModeToggle from './ModeToggle'
+import { ModeToggle } from './ModeToggle'
 
-const navItems = [
+interface NavItem {
+  label: string
+  href: string
+}
+
+const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
@@ -14,7 +18,7 @@ const navItems = [
   { label: 'Contact', href: '/contact' }
 ]
 
-export default function Header() {
+export default function Header(): React.ReactElement {
   const pathname = usePathname()
 
   return (

@@ -1,20 +1,52 @@
-// src/app/page.tsx
+import { projects } from "../lib/projects"
+import Hero from "./_components/Hero"
+import Project from "./_components/ProjectsSnip"
+import Skills from "./_components/Skill"
+import { Button } from "../components/ui/Button"
+import Link from "next/link"
 
-import About from "./_components/About";
-import Hero from "./_components/Hero";
-import ProjectsSnip from "./_components/ProjectsSnip";
-import Skills from "./_components/Skills";
-import Testimonals from "./_components/Testimonals";
-
-
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
-    <>
+    <main className="mb-20">
       <Hero />
-      <About />
-      <ProjectsSnip />
+
+      <div className="text-center mb-0 mt-8">
+        <h1 className="text-4xl font-bold pb-2">
+          Skills<span className="text-primary">.</span>
+        </h1>
+        <p className="text-xs">
+          These are the skills I've developed throughout <br /> my coding
+          journey.<span className="text-primary">.</span>
+        </p>
+      </div>
+
       <Skills />
-      <Testimonals />
-    </>
+
+      <div className="grid place-content-center mt-2 mb-10 pb-9">
+        <Button asChild variant="secondary">
+          <Link href="/skills">View All Skills</Link>
+        </Button>
+      </div>
+
+      <div className="text-center mb-5">
+        <h1 className="text-4xl font-bold pb-3">
+          Projects<span className="text-primary">.</span>
+        </h1>
+        <p className="text-xs pb-3">
+          Some of my projects I built, click view all <br /> for all projects
+          <span className="text-primary">.</span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 flex-wrap items-center justify-center md:px-20 lg:px-32 px-5">
+        <Project {...projects[0]} />
+      </div>
+
+      <div className="grid place-content-center mt-10">
+        <Button asChild variant="secondary">
+          <Link href="/projects">View All Projects</Link>
+        </Button>
+      </div>
+    </main>
   )
 }

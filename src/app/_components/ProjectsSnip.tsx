@@ -1,47 +1,68 @@
-// src/app/_components/ProjectsSnip.tsx
-import React from 'react'
+'use client'
 
-interface Project {
+import { Button } from "../../components/ui/Button"
+import { Eye, Github } from "lucide-react"
+import Link from "next/link"
+import React from "react"
+
+interface ProjectProps {
   title: string
-  description: string
-  link?: string
+  alt: string
+  image: string
+  description?: string
+  liveurl?: string
+  livecode?: string
 }
 
-const projects: Project[] = [
-  {
-    title: 'Spotify Clone',
-    description: 'A music streaming clone built with React and Tailwind CSS.',
-    link: '#'
-  },
-  {
-    title: 'Laptop Shopping Website',
-    description: 'An e-commerce frontend built using React and Redux Toolkit.',
-    link: '#'
-  },
-  {
-    title: 'Weather Forecast App',
-    description: 'Weather data with live API using OpenWeatherMap.',
-    link: '#'
-  }
-]
-
-export default function ProjectsSnip() {
+export default function Project({
+  title,
+  alt,
+  image,
+  description,
+  liveurl,
+  livecode,
+}: ProjectProps) {
   return (
-    <section className="py-12 px-4 max-w-4xl mx-auto">
-      <h2 className="text-3xl font-semibold mb-6">Featured Projects</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <div key={index} className="border p-4 rounded shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="mb-2">{project.description}</p>
-            {project.link && (
-              <a href={project.link} className="text-blue-600 underline text-sm">
-                View Project
-              </a>
-            )}
-          </div>
-        ))}
+    <div className="relative border bg-background dark:bg-secondary max-w-fit rounded-md grid place-content-center">
+      <div className="p-1">
+        <img
+          className="w-full max-w-[340px] md:max-w-[300px] h-full rounded-md aspect-video"
+          src={image}
+          alt={alt}
+        />
       </div>
-    </section>
+
+      <div className="absolute bottom-[84px] left-3 grid gap-2">
+        <span className="text-xs dark:bg-secondary bg-background p-2 px-3 rounded">
+          {alt}
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between px-4 py-4 mt-[5px]">
+        <h1 className="text-sm">{title}</h1>
+
+        <Button size="sm" variant="secondary" asChild>
+          <Link
+            href={livecode ?? "/"}
+            className="flex items-center gap-1 justify-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            code <Github className="h-4 w-4" />
+          </Link>
+        </Button>
+
+        <Button size="sm" asChild>
+          <Link
+            href={liveurl ?? "/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 justify-center"
+          >
+            live <Eye className="h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+    </div>
   )
 }

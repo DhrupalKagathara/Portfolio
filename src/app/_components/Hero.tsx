@@ -1,13 +1,30 @@
 // src/app/_components/Hero.tsx
+import { Button } from 'components/ui/Button'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center h-[80vh] text-center px-4">
-      <h1 className="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Dhrupal Kagathra</h1>
-      <p className="text-lg md:text-xl max-w-2xl">
-        I'm a Front-End Developer and QA enthusiast with a passion for building interactive and accessible web experiences.
-      </p>
+    <section className="relative grid place-content-center py-20 px-6">
+      <div className="md:max-w-2xl max-w-md text-center grid gap-1">
+        <h1 className="md:text-4xl lg:text-5xl text-3xl font-bold">
+          Hi I am <span className="gradient-text ">Dhrupal Kagathra</span> a Front End Developer
+          <span className="text-primary">.</span>
+        </h1>
+        <p className="text-[0.9rem] max-w-md mx-auto">
+          I am on a mission to become a Full Stack Developer. My goal is to gain
+          proficiency in both front-end and back-end technologies
+          <span className="text-primary">.</span>
+        </p>
+      </div>
+      <div className="flex items-center justify-center gap-3 mt-5">
+        <Button asChild variant="outline">
+          <Link href="/about">About Me</Link>
+        </Button>
+        <Button asChild className="flex gap-1 items-center justify-center">
+          <Link href="/projects">My Project</Link>
+        </Button>
+      </div>
     </section>
   )
 }
