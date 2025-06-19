@@ -1,7 +1,7 @@
 // src/components/ui/Avatar.tsx
 import React from 'react'
 import Image from 'next/image'
-import { cn } from '../../utils/cn'
+import { cn } from '../../lib/utils'
 
 type AvatarProps = {
   src: string

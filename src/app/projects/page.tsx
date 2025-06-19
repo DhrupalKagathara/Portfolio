@@ -20,7 +20,7 @@ export default function Page(): React.ReactElement {
         </p>
       </div>
       {projects.map((project) => (
-        <div className='grid place-content-center '>
+        <div key={project.title} className='grid place-content-center '>
 
         <ProjectsSnip
           key={project.title}

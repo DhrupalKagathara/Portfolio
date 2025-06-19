@@ -1,6 +1,6 @@
 // src/components/ui/Label.tsx
 import React, { LabelHTMLAttributes } from 'react'
-import { cn } from '../../utils/cn'
+import { cn } from '../../lib/utils'
 
 type LabelProps = LabelHTMLAttributes<HTMLLabelElement>
 
