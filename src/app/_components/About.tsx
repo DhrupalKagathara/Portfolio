@@ -2,8 +2,8 @@
 
 import { Button } from "../../components/ui/Button"
 import Link from "next/link"
-import { TypeAnimation } from 'react-type-animation'
 import { motion } from "framer-motion"
+import TextType from "../../components/ui/TypeText"
 
 export default function Hero() {
   return (
@@ -20,25 +20,18 @@ export default function Hero() {
             Dhrupal Kagathra
           </span>
           .{" "}
-          <TypeAnimation
-            sequence={[
-              "I'm a Frontend Developer",
-              2000,
-              "I'm a Full-stack Developer",
-              2000,
-              "I'm a UI Designer",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            className="text-primary font-semibold"
-            repeat={Infinity}
+          <TextType
+            text={["I'm a Frontend Developer", "I'm a Full-stack Developer", "I'm a Freelancer"]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="_"
           />
         </h1>
 
         <p className="text-[1.1rem] mx-auto leading-relaxed text-gray-700 dark:text-gray-300">
-          Hello, I'm Dhrupal Kagathra, a passionate and skilled full-stack web
-          developer from Gujarat, India. I'm currently pursuing a{" "}
+          Hello, I&apos;m Dhrupal Kagathra, a passionate and skilled full-stack web
+          developer from Gujarat, India. I&apos;m currently pursuing a{" "}
           <span className="underline underline-offset-4 text-primary">
             Bachelor of Engineering (BE)
           </span>{" "}

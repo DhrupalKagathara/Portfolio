@@ -11,7 +11,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../components/ui/DropdownMenu'
-import { ModeToggle } from './ModeToggle'
 
 export default function Header(): React.ReactElement {
   return (
@@ -69,7 +68,6 @@ export default function Header(): React.ReactElement {
           <Link href="/contact">Contact Me</Link>
         </Button>
 
-        <ModeToggle />
       </div>
     </header>
   )

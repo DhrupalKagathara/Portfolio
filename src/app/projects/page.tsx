@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import ProjectsSnip from '../_components/ProjectsSnip'
 import type { Metadata } from 'next'
-import { projects } from '../../lib/projects';
+import { projects } from '../../lib/projects'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -19,15 +18,8 @@ export default function Page(): React.ReactElement {
           <span className="text-primary">.</span>
         </p>
       </div>
-      {projects.map((project) => (
-        <div key={project.title} className='grid place-content-center '>
 
-        <ProjectsSnip
-          key={project.title}
-          {...project}
-          />
-          </div>
-      ))}
+      <ProjectsSnip projects={projects} />
     </div>
   )
 }

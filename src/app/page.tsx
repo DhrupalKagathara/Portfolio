@@ -15,7 +15,7 @@ export default function Home(): React.ReactElement {
           Skills<span className="text-primary">.</span>
         </h1>
         <p className="text-xs">
-          These are the skills I've developed throughout <br /> my coding
+          These are the skills I&apos;ve developed throughout <br /> my coding
           journey.<span className="text-primary">.</span>
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function Home(): React.ReactElement {
       </div>
 
       <div className="flex gap-2 flex-wrap items-center justify-center md:px-20 lg:px-32 px-5">
-        <Project {...projects[0]} />
+        <Project projects={projects.slice(0, 4)} />
       </div>
 
       <div className="grid place-content-center mt-10">

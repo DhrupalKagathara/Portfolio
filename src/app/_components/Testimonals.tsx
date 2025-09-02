@@ -27,7 +27,7 @@ export default function Testimonals() {
       <div className="space-y-6">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded shadow">
-            <p className="italic mb-2">"{testimonial.feedback}"</p>
+            <p className="italic mb-2">{testimonial.feedback}</p>
             <p className="font-semibold">{testimonial.name}</p>
             {testimonial.role && <p className="text-sm text-gray-500">{testimonial.role}</p>}
           </div>

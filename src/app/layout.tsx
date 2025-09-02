@@ -7,6 +7,8 @@ import Footer from '../components/Footer'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
+import DarkVeil from '../components/ui/DarkVeil'
+import ClickSpark from 'components/ui/ClickSpark'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -33,16 +35,36 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }): React.ReactElement {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <html lang="en" suppressHydrationWarning>
-        <body className={poppins.className}>
-          <Header />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </body>
-      </html>
-    </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={poppins.className}>
+        {/* Background effect */}
+        <div className="fixed inset-0 -z-10 w-full h-full">
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0.08}
+            scanlineIntensity={0.12}
+            speed={0.5}
+            scanlineFrequency={2.5}
+            warpAmount={0.08}
+            resolutionScale={1}
+          />
+        </div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ClickSpark sparkColor='#fff'
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}>
+
+            <Header />
+            {children}
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </ClickSpark>
+        </ThemeProvider>
+      </body>
+    </html>
+
   )
 }

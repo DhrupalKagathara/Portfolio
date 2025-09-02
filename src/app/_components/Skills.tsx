@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FaCode, FaHtml5, FaReact } from 'react-icons/fa'
+import { FaHtml5, FaReact } from 'react-icons/fa'
 import { IoLogoCss3 } from 'react-icons/io'
 import {
     SiJavascript,

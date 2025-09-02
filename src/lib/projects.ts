@@ -1,5 +1,12 @@
 export const projects = [
   {
+    title: "Kanban Board",
+    alt: "kanban-board",
+    image: "/assets/images/kanban-board.png",
+    liveurl: "https://kanban-board-4ohn.onrender.com",
+    livecode: "https://github.com/DhrupalKagathara/Kanban_Board",
+  },
+  {
     title: "Smart Home Buying",
     alt: "smart-home-buying",
     image: "/assets/images/smart-home-buying.png",

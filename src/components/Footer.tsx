@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Logo from "./Logo"
 import Social from "./Social"
-import { ModeToggle } from "./ModeToggle"
 import React from "react"
 
 export default function Footer(): React.ReactElement {
@@ -11,7 +10,6 @@ export default function Footer(): React.ReactElement {
         <div>
           <Logo />
         </div>
-        <ModeToggle />
       </div>
 
       <Social />

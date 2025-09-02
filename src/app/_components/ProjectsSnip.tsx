@@ -1,9 +1,7 @@
 'use client'
 
-import { Button } from "../../components/ui/Button"
-import { Eye, Github } from "lucide-react"
-import Link from "next/link"
 import React from "react"
+import ChromaGrid, { ChromaItem } from "../../components/ui/ChromaGrid"
 
 interface ProjectProps {
   title: string
@@ -14,55 +12,28 @@ interface ProjectProps {
   livecode?: string
 }
 
-export default function Project({
-  title,
-  alt,
-  image,
-  description,
-  liveurl,
-  livecode,
-}: ProjectProps) {
-  return (
-    <div className="relative border bg-background dark:bg-secondary max-w-fit rounded-md grid place-content-center">
-      <div className="p-1">
-        <img
-          className="w-full max-w-[340px] md:max-w-[300px] h-full rounded-md aspect-video"
-          src={image}
-          alt={alt}
-        />
-      </div>
+interface ProjectsSnipProps {
+  projects: ProjectProps[]
+}
 
-      <div className="absolute bottom-[84px] left-3 grid gap-2">
-        <span className="text-xs dark:bg-secondary bg-background p-2 px-3 rounded">
-          {alt}
-        </span>
-      </div>
+export default function ProjectsSnip({ projects = [] }: ProjectsSnipProps) {
+  console.log("ProjectsSnip projects:", projects);
 
-      <div className="flex items-center justify-between px-4 py-4 mt-[5px]">
-        <h1 className="text-sm">{title}</h1>
+  if (!projects || !Array.isArray(projects)) {
+    return <p className="text-center text-gray-400">⚠️ No projects found.</p>;
+  }
 
-        <Button size="sm" variant="secondary" asChild>
-          <Link
-            href={livecode ?? "/"}
-            className="flex items-center gap-1 justify-center"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            code <Github className="h-4 w-4" />
-          </Link>
-        </Button>
+  const items: (ChromaItem & { livecode?: string; liveurl?: string })[] =
+    projects.map((p) => ({
+      image: p.image,
+      title: p.title,
+      subtitle: p.description ?? p.alt,
+      url: p.livecode,
+      livecode: p.livecode,
+      liveurl: p.liveurl,
+      borderColor: "#4F46E5",
+      gradient: "linear-gradient(145deg,#4F46E5,#000)",
+    }));
 
-        <Button size="sm" asChild>
-          <Link
-            href={liveurl ?? "/"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 justify-center"
-          >
-            live <Eye className="h-4 w-4" />
-          </Link>
-        </Button>
-      </div>
-    </div>
-  )
+  return <ChromaGrid items={items} className="min-h-[260px]" />;
 }
