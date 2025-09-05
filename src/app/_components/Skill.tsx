@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import { FaHtml5, FaReact } from 'react-icons/fa'
+import { FaHtml5, FaNode, FaReact } from 'react-icons/fa'
 import { IoLogoCss3 } from 'react-icons/io'
-import { SiBootstrap, SiJavascript, SiNextdotjs } from 'react-icons/si'
+import { SiBootstrap, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
 import { Tooltip } from '@nextui-org/react'
 import type { IconType } from 'react-icons'
 
@@ -18,9 +18,15 @@ export default function Skill(): React.ReactElement {
     { Icon: FaHtml5, color: '#dd4b24', name: 'HTML' },
     { Icon: IoLogoCss3, color: '#2862e9', name: 'CSS' },
     { Icon: SiBootstrap, color: '#7952B3', name: 'Bootstrap' },
+    { Icon:SiTailwindcss, color: '#38bdf8', name: 'Tailwind CSS' },
     { Icon: SiJavascript, color: '#ecda1d', name: 'JavaScript' },
     { Icon: FaReact, color: '#5ed3f3', name: 'React' },
-    { Icon: SiNextdotjs, color: '#000000', name: 'Next.js' }
+    { Icon: SiNextdotjs, color: '#000000', name: 'Next.js' },
+    { Icon: SiTypescript, color: '#3178c6', name: 'TypeScript' },
+    { Icon: SiMongodb, color: '#47A248', name: 'MongoDB' },
+    { Icon: FaNode, color: '#3c873a', name: 'Node.js' },
+
+
   ]
 
   return (

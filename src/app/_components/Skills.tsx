@@ -1,14 +1,20 @@
 'use client'
 
 import React from 'react'
-import { FaHtml5, FaReact } from 'react-icons/fa'
+import { FaHtml5, FaReact, FaNodeJs, FaAngular, FaDatabase } from 'react-icons/fa'
 import { IoLogoCss3 } from 'react-icons/io'
 import {
     SiJavascript,
-    SiC,
+    SiTypescript,
+    SiTailwindcss,
     SiBootstrap,
+    SiMongodb,
+    SiMysql,
+    SiFirebase,
+    SiExpress,
     SiGit,
     SiGithub,
+    SiC,
 } from 'react-icons/si'
 import { DiPython } from 'react-icons/di'
 import { Tooltip } from '@nextui-org/react'
@@ -22,17 +28,32 @@ interface Skill {
 }
 
 export default function Skills(): React.ReactElement {
-    const languages: Skill[] = [
-        { Icon: FaHtml5, color: '#dd4b24', name: 'HTML' },
-        { Icon: IoLogoCss3, color: '#2862e9', name: 'CSS' },
+    const frontend: Skill[] = [
+        { Icon: FaReact, color: '#5ed3f3', name: 'React.js' },
+        { Icon: FaAngular, color: '#dd0031', name: 'AngularJS' },
         { Icon: SiJavascript, color: '#ecda1d', name: 'JavaScript' },
-        { Icon: SiC, color: '#A8B9CC', name: 'C' },
-        { Icon: DiPython, color: '#306998', name: 'Python' },
+        { Icon: SiTypescript, color: '#3178c6', name: 'TypeScript' },
+        { Icon: FaHtml5, color: '#dd4b24', name: 'HTML5' },
+        { Icon: IoLogoCss3, color: '#2862e9', name: 'CSS3' },
+        { Icon: SiTailwindcss, color: '#38bdf8', name: 'Tailwind CSS' },
+        { Icon: SiBootstrap, color: '#7952B3', name: 'Bootstrap' },
+        // Next.js does not have a dedicated icon in react-icons, you can add a custom one if needed
     ]
 
-    const frameworks: Skill[] = [
-        { Icon: SiBootstrap, color: '#7952B3', name: 'Bootstrap' },
-        { Icon: FaReact, color: '#5ed3f3', name: 'React' },
+    const backend: Skill[] = [
+        { Icon: FaNodeJs, color: '#3c873a', name: 'Node.js' },
+        { Icon: SiExpress, color: '#000000', name: 'Express.js' },
+        { Icon: SiMongodb, color: '#47A248', name: 'MongoDB' },
+        { Icon: SiMysql, color: '#00758F', name: 'MySQL' },
+        { Icon: SiFirebase, color: '#FFCA28', name: 'Firebase' },
+        // For database in general, you could use FaDatabase if you want
+    ]
+
+    const languages: Skill[] = [
+        { Icon: SiJavascript, color: '#ecda1d', name: 'JavaScript' },
+        { Icon: SiTypescript, color: '#3178c6', name: 'TypeScript' },
+        { Icon: DiPython, color: '#306998', name: 'Python' },
+        { Icon: SiC, color: '#A8B9CC', name: 'C' },
     ]
 
     const tools: Skill[] = [
@@ -75,24 +96,34 @@ export default function Skills(): React.ReactElement {
 
     return (
         <div className="py-4 -mt-5 mb-10 px-5">
-            {/* Languages */}
+            {/* Frontend */}
             <div className="py-20 -mb-12 text-center">
+                <h1 className="text-2xl font-bold">
+                    Frontend<span className="text-primary">.</span>
+                </h1>
+            </div>
+            <div className="flex gap-6 flex-wrap items-center justify-center rounded-md max-w-3xl mx-auto">
+                {renderSkillGroup(frontend)}
+            </div>
+
+            {/* Backend */}
+            <div className="py-16 -mb-12 text-center">
+                <h1 className="text-2xl font-bold">
+                    Backend<span className="text-primary">.</span>
+                </h1>
+            </div>
+            <div className="flex gap-6 flex-wrap items-center justify-center rounded-md max-w-3xl mx-auto">
+                {renderSkillGroup(backend)}
+            </div>
+
+            {/* Languages */}
+            <div className="py-16 -mb-12 text-center">
                 <h1 className="text-2xl font-bold">
                     Languages<span className="text-primary">.</span>
                 </h1>
             </div>
             <div className="flex gap-6 flex-wrap items-center justify-center rounded-md max-w-3xl mx-auto">
                 {renderSkillGroup(languages)}
-            </div>
-
-            {/* Libraries and Frameworks */}
-            <div className="py-16 -mb-12 text-center">
-                <h1 className="text-2xl font-bold">
-                    Libraries and Frameworks<span className="text-primary">.</span>
-                </h1>
-            </div>
-            <div className="flex gap-6 flex-wrap items-center justify-center rounded-md max-w-3xl mx-auto">
-                {renderSkillGroup(frameworks)}
             </div>
 
             {/* Tools & Services */}

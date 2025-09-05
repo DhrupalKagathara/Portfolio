@@ -187,51 +187,45 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
             } as React.CSSProperties
           }
         >
-          <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
-            style={{
-              background:
-                'radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)'
-            }}
-          />
           <div className="relative z-10 flex-1 p-[10px] box-border">
-            <Image src={c.image} alt={c.title} width={300} height={200} loading="lazy" className="w-full h-full object-cover rounded-[10px]" />
+            <Image src={c.image} alt={c.title} width={300} height={200} loading="lazy" className="w-full h-full object-cover rounded-[10px]" style={{ objectPosition: "center" }} />
+            {/* Icons at top right of image */}
+            <div className="absolute top-3 right-3 flex gap-2 z-20">
+              {c.livecode && (
+                <button
+                  type="button"
+                  className="bg-neutral-900/80 hover:bg-neutral-800 text-white rounded-full p-2 transition"
+                  title="View Code"
+                  onClick={e => {
+                    e.stopPropagation();
+                    window.open(c.livecode, '_blank', 'noopener,noreferrer');
+                  }}
+                >
+                  <Github className="w-5 h-5" />
+                </button>
+              )}
+              {c.liveurl && (
+                <button
+                  type="button"
+                  className="bg-blue-600/80 hover:bg-blue-600 text-white rounded-full p-2 transition"
+                  title="View Live"
+                  onClick={e => {
+                    e.stopPropagation();
+                    window.open(c.liveurl, '_blank', 'noopener,noreferrer');
+                  }}
+                >
+                  <Eye className="w-5 h-5" />
+                </button>
+              )}
+            </div>
           </div>
-          <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
+          {/* Title and subtitle vertically */}
+          <footer className="relative z-10 p-3 text-white font-sans flex flex-col gap-1">
             <h3 className="m-0 text-[1.05rem] font-semibold">{c.title}</h3>
-            {c.handle && <span className="text-[0.95rem] opacity-80 text-right">{c.handle}</span>}
-            <p className="m-0 text-[0.85rem] opacity-85">{c.subtitle}</p>
-            {c.location && <span className="text-[0.85rem] opacity-85 text-right">{c.location}</span>}
+            <p className="m-0 text-[0.85rem] opacity-85 line-clamp-2">{c.subtitle}</p>
+            {c.handle && <span className="text-[0.95rem] opacity-80">{c.handle}</span>}
+            {c.location && <span className="text-[0.85rem] opacity-85">{c.location}</span>}
           </footer>
-          {/* Add buttons at bottom right */}
-          <div className="absolute bottom-3 right-3 flex gap-2 z-20">
-            {c.livecode && (
-              <button
-                type="button"
-                className="bg-neutral-900/80 hover:bg-neutral-800 text-white rounded-full p-2 transition"
-                title="View Code"
-                onClick={e => {
-                  e.stopPropagation();
-                  window.open(c.livecode, '_blank', 'noopener,noreferrer');
-                }}
-              >
-                <Github className="w-5 h-5" />
-              </button>
-            )}
-            {c.liveurl && (
-              <button
-                type="button"
-                className="bg-blue-600/80 hover:bg-blue-600 text-white rounded-full p-2 transition"
-                title="View Live"
-                onClick={e => {
-                  e.stopPropagation();
-                  window.open(c.liveurl, '_blank', 'noopener,noreferrer');
-                }}
-              >
-                <Eye className="w-5 h-5" />
-              </button>
-            )}
-          </div>
         </article>
       ))}
       <div

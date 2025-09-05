@@ -1,5 +1,32 @@
 export const projects = [
   {
+    title: "AKM Industries - Freelance",
+    alt: "akm-industries",
+    image: "/assets/images/akm-industries.png",
+    liveurl: "https://akmindustries.in/",
+    livecode: "",
+    description: "Professional business website with modern design and functionality. Integrated Netlify CMS for admin-side product management, enabling seamless content updates and product catalog management.",
+    stack: "Next.js, TypeScript, Tailwind CSS"
+  },
+  {
+    title: "Jay Industries - Freelance",
+    alt: "jay-industries",
+    image: "/assets/images/jay-industries.png",
+    liveurl: "https://www.jayindustries.net/",
+    livecode: "",
+    description: "Corporate website showcasing industrial services and products. Built with modern web technologies for optimal performance, responsive design, and enhanced user experience across all devices.",
+    stack: "Next.js, TypeScript, Tailwind CSS"
+  },
+  {
+    title: "Dream India Media - Freelance",
+    alt: "dream-india-media",
+    image: "/assets/images/dreamindiamedia.png",
+    liveurl: "https://dreamindiamedia.com/",
+    livecode: "",
+    description: "Professional media company website featuring modern design and comprehensive service showcase. Built with optimized performance and responsive layout for enhanced user engagement.",
+    stack: "Next.js, TypeScript, Tailwind CSS"
+  },
+  {
     title: "Kanban Board",
     alt: "kanban-board",
     image: "/assets/images/kanban-board.png",
